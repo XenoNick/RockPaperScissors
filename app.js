@@ -9,20 +9,18 @@ function generateComputersChoice() {
 }
 
 function checkResults(playerChoice, computersChoice) {
-    if (playerChoice === computersChoice) return 'tie';
-    else if (playerChoice === 'Rock') {
-        if (computersChoice === 'Paper') return 'lose';
-        else if (computersChoice === 'Scissors') return 'win';
+    if (playerChoice === computersChoice) {
+        return 'tie';
+    } else if (playerChoice === 'Rock') {
+        return computersChoice === 'Scissors' ? 'win' : 'lose'
     } else if (playerChoice === 'Paper') {
-        if (computersChoice === 'Scissors') return 'lose';
-        else if (computersChoice === 'Rock') return 'win';
+        return computersChoice === 'Rock' ? 'win' : 'lose'
     } else if (playerChoice === 'Scissors') {
-        if (computersChoice === 'Rock') return 'lose';
-        else if (computersChoice === 'Paper') return 'win';
+        return computersChoice === 'Paper' ? 'win' : 'lose'
     }
 }
 
-function incrementScore(score){
+function incrementScore(score) {
     return String(++score)
 }
 
@@ -30,6 +28,7 @@ const rpsContainer = document.querySelector('.rpsContainer');
 const info = document.querySelector('.info');
 const playerScore = document.querySelector('.player > span');
 const computerScore = document.querySelector('.computer > span');
+const resetButton = document.querySelector('.resetButton')
 
 rpsContainer.addEventListener('click', (e) => {
     const playerChoice = e.target.alt;
