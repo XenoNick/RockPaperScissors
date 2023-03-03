@@ -24,13 +24,17 @@ function incrementScore(score) {
     return String(++score)
 }
 
-const rpsContainer = document.querySelector('.rpsContainer');
-const info = document.querySelector('.info');
-const playerScore = document.querySelector('.player > span');
-const computerScore = document.querySelector('.computer > span');
-const resetButton = document.querySelector('.resetButton')
+function endGame() {
+    rpsContainer.removeEventListener('click', playMatch)
+    resetButton.classList.toggle('hidden')
+    if (+playerScore.textContent === 5) {
+        info.textContent = 'Congratulations, you\'ve beaten the computer!'
+    } else[
+        info.textContent = 'Ouch, looks like the computer got the upper hand!'
+    ]
+}
 
-rpsContainer.addEventListener('click', (e) => {
+const playMatch = (e) => {
     const playerChoice = e.target.alt;
     if (playerChoice) {
         const computersChoice = generateComputersChoice();
@@ -44,6 +48,25 @@ rpsContainer.addEventListener('click', (e) => {
         } else {
             info.textContent = 'It\'s a tie!';
         }
+        if (+playerScore.textContent === 5 || +computerScore.textContent === 5) {
+            endGame()
+        }
         console.log(result)
     }
+}
+
+const rpsContainer = document.querySelector('.rpsContainer');
+const info = document.querySelector('.info');
+const playerScore = document.querySelector('.player > span');
+const computerScore = document.querySelector('.computer > span');
+const resetButton = document.querySelector('.resetButton')
+
+rpsContainer.addEventListener('click', playMatch)
+
+resetButton.addEventListener('click', () => {
+    playerScore.textContent = '0'
+    computerScore.textContent = '0'
+    info.textContent = 'Waiting on player...'
+    resetButton.classList.toggle('hidden')
+    rpsContainer.addEventListener('click', playMatch)
 })
