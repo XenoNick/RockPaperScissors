@@ -1,0 +1,52 @@
+body{
+    height: 100vh;
+    text-align: center;
+    background-color: rgb(53, 53, 53);
+    color: rgb(72, 72, 227);
+    margin: 0;
+}
+.rpsContainer{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.weapon{
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+}
+.scores{
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+img{
+    height: 100%;
+    width: 100%;
+}
+h1{
+    font-size: 52px;
+    border-bottom: 2px solid rgb(145, 12, 12);
+}
+p{
+    font-size: 24px;
+}
+button{
+    font-size: 24px;
+    padding: 6px 16px;
+    margin-top: 10px;
+    border: 2px solid blue;
+    background-color: blue;
+    color: red;
+    transition: border .2s ease-in-out;
+}
+button:hover{
+    cursor: pointer;
+    border: 2px solid yellow;
+}
+button:active{
+    border-style: inset;
+}
