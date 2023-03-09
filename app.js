@@ -35,6 +35,7 @@ function endGame() {
 }
 
 const playMatch = (e) => {
+    //Grabbing players choice from the alt text on the images
     const playerChoice = e.target.alt;
     if (playerChoice) {
         const computersChoice = generateComputersChoice();
